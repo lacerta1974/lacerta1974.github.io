@@ -6,7 +6,16 @@
     <title>Hello World</title>
 </head>
 
-<body>
+<body id="testBody" onload="adjust_iframe_height();">
+
+<script>
+    function adjust_iframe_height() {
+        var actual_height = document.getElementById('testBody').scrollHeight;
+        parent.postMessage(actual_height, "*");
+        //* allows this to post to any parent iframe regardless of domain
+    }
+</script>
+
 <div class="container">
     Testing Iframes
 </div>
